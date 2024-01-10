@@ -1,0 +1,23 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ingress-stripprefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /k8s
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: k8s
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`120.78.149.224`) && (PathPrefix(`/k8s`)
+    services:
+    - name: kuboard-v3
+      namespace: kuboard
+      port: 30080
