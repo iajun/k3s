@@ -16,13 +16,6 @@ metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
 spec:
-  clusterIP: 10.43.126.216
-  clusterIPs:
-  - 10.43.126.216
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - name: https
     port: 443
